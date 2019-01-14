@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -15,6 +13,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import {connect} from 'react-redux';
 import {signUserIn, signGoogle} from '../../actions';
 import GoogleLogin from 'react-google-login';
+import Particles from 'react-particles-js';
+
+import "./SignIn.css";
 
 const styles = theme => ({
   main: {
@@ -27,6 +28,7 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+    padding:theme.spacing.unit * 10,
   },
   paper: {
     marginTop: theme.spacing.unit * 8,
@@ -34,10 +36,6 @@ const styles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
-  },
-  avatar: {
-    margin: theme.spacing.unit,
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -97,11 +95,10 @@ class SignIn extends React.Component {
         const { classes } = this.props;
 
         return (
+            <div id='particles-js'>
+            
             <main className={classes.main}>
                 <Paper className={classes.paper}>
-                    <Avatar className={classes.avatar}>
-                        <LockIcon />
-                    </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
@@ -149,6 +146,62 @@ class SignIn extends React.Component {
                     
                 </Paper>
             </main>
+                <div id='particle-container'>
+                        <Particles className='myCanvas'
+                            params={{
+                            "particles": {
+                                "number": {
+                                    "value": 160,
+                                    "density": {
+                                        "enable": false
+                                    }
+                                },
+                                "size": {
+                                    "value": 3,
+                                    "random": true,
+                                    "anim": {
+                                        "speed": 4,
+                                        "size_min": 0.3
+                                    }
+                                },
+                                "line_linked": {
+                                    "enable": false
+                                },
+                                "move": {
+                                    "random": true,
+                                    "speed": 1,
+                                    "direction": "top",
+                                    "out_mode": "out"
+                                }
+                            },
+                            "interactivity": {
+                                "events": {
+                                    "onhover": {
+                                        "enable": true,
+                                        "mode": "bubble"
+                                    },
+                                    "onclick": {
+                                        "enable": true,
+                                        "mode": "repulse"
+                                    }
+                                },
+                                "modes": {
+                                    "bubble": {
+                                        "distance": 250,
+                                        "duration": 2,
+                                        "size": 0,
+                                        "opacity": 0
+                                    },
+                                    "repulse": {
+                                        "distance": 400,
+                                        "duration": 4
+                                    }
+                        }
+                    }
+                }} />
+            </div>
+            
+            </div>
             );
     }
   
