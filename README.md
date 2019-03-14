@@ -2,7 +2,7 @@
 Authentication.
 Add auth features to React Material Template.
 - /Signup: User can sign up with username, email and password.
-- /SignIn: User can sign in with email and password. And then will receive bearer token from backend and user can call other REST api with this tokne. Backend will realize the user with this token. When user try to call API with invalid or expired token, backend will reponse with Error msg...
+- /SignIn: User can sign in with email and password. And then will receive bearer token from backend and user can call other REST api with this token. Backend will realize the user with this token. When user try to call API with invalid or expired token, backend will reponse with Error msg... Token will be expired automatically after 24 hours.
 - /Logout: User token will be expired.
 # To run app
 Install MongoDB and create MERN-stack database and create new collection users
